@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DbProject</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{aaef9ef7-e97e-4f9e-b82b-6cf44419da42}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DbProject</RootNamespace>
+    <AssemblyName>DbProject</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ORGM_SizePattern_CodeMaster.sql" />
+    <Build Include="dbo\Tables\ORGM_VendorCode_Master.sql" />
+    <Build Include="dbo\Tables\ProductPrice.sql" />
+    <Build Include="dbo\Tables\FalconSystemEmail.sql" />
+    <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
+    <Build Include="dbo\Tables\BankAccount.sql" />
+    <Build Include="dbo\Tables\CreditTerm.sql" />
+    <Build Include="dbo\Tables\CustomerService.sql" />
+    <Build Include="dbo\Tables\Currency.sql" />
+    <Build Include="dbo\Tables\FalconUser.sql" />
+    <Build Include="dbo\Tables\ORGM_DATA_HD.sql" />
+    <Build Include="dbo\Tables\PaymentMode.sql" />
+    <Build Include="dbo\Tables\PaymentTerm.sql" />
+    <Build Include="dbo\Tables\ProgramMaster.sql" />
+    <Build Include="dbo\Tables\SalesPerson.sql" />
+    <Build Include="dbo\Tables\ShipmentMethod.sql" />
+    <Build Include="dbo\Tables\ShippingTerms.sql" />
+    <Build Include="dbo\Tables\Site.sql" />
+    <Build Include="dbo\Tables\SYSTEM_DATA_H.sql" />
+    <Build Include="dbo\Tables\Brand.sql" />
+    <Build Include="dbo\Tables\FalconSystem.sql" />
+    <Build Include="dbo\Tables\Product.sql" />
+    <Build Include="dbo\Tables\User_Program.sql" />
+    <Build Include="dbo\Tables\VendorMaster.sql" />
+    <Build Include="dbo\Tables\ORGM_ORDER_H.sql" />
+    <Build Include="dbo\Tables\Program_Vendor.sql" />
+    <Build Include="dbo\Tables\User_Vendor.sql" />
+    <Build Include="dbo\Tables\SizeSorting.sql" />
+    <Build Include="dbo\Tables\ORGM_ORDER_HD.sql" />
+    <Build Include="dbo\Tables\General_OH.sql" />
+    <Build Include="dbo\Tables\ProductMatrixData.sql" />
+    <Build Include="dbo\Tables\General_OHD.sql" />
+    <Build Include="dbo\Tables\General_OHD_Data.sql" />
+    <Build Include="dbo\Tables\General_OHD_Header.sql" />
+    <Build Include="dbo\Tables\ConfirmOrderH.sql" />
+    <Build Include="dbo\Tables\UsersActivites.sql" />
+    <Build Include="dbo\Tables\ProductStock.sql" />
+    <Build Include="dbo\Tables\ConfirmOrderHD.sql" />
+    <Build Include="Security\falcon.sql" />
+    <Build Include="Security\falcon-service.sql" />
+    <Build Include="Security\fuad.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\ProductPriceExportData.sql" />
+    <Build Include="dbo\Stored Procedures\ProductStockExportData.sql" />
+  </ItemGroup>
+</Project>
