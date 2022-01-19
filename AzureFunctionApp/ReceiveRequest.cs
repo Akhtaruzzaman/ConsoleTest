@@ -15,6 +15,7 @@ namespace AzureFunctionApp
         [FunctionName("ReceiveRequest")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [Queue("OutputQueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -25,9 +26,11 @@ namespace AzureFunctionApp
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             name = name ?? data?.name;
 
+            var conn = System.Environment.GetEnvironmentVariable("ConnectionString", EnvironmentVariableTarget.Process);
+            msg.Add($"Name Passed is {name}");
             string responseMessage = string.IsNullOrEmpty(name)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+                : $"Hello, {name}. This HTTP triggered function executed successfully. and Con {conn}";
 
             return new OkObjectResult(responseMessage);
         }
