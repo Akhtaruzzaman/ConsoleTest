@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@inject Service.IEmployeeService service
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@{ 
+    var data = service.Employees();
+}
+<table class="table table-bordered">
+    <tr class="text-center">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    @foreach (var item in data)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Address</td>
+        </tr>
+    }
+</table>
