@@ -21,13 +21,18 @@ namespace AzureFunctionApp
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string name = req.Query["name"];
+            string address = req.Query["address"];
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             name = name ?? data?.name;
+            address = address ?? data?.address;
+
+            TestClass test = new TestClass(name, address);
 
             var conn = System.Environment.GetEnvironmentVariable("ConnectionString", EnvironmentVariableTarget.Process);
             msg.Add($"Name Passed is {name}");
+            msg.Add($"Class Object is {JsonConvert.SerializeObject(test)}");
             string responseMessage = string.IsNullOrEmpty(name)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
                 : $"Hello, {name}. This HTTP triggered function executed successfully. and Con {conn}";
