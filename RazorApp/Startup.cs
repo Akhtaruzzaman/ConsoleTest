@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Models.DataAccess;
 using RazorApp.Service;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,10 @@ namespace RazorApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<PeopleContext>(_ => {
+                _.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
             services.AddRazorPages();
             services.AddSingleton<IEmployeeService, EmployeeService>();
         }

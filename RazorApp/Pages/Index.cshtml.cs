@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Models.DataAccess;
+using Models.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace RazorApp.Pages
@@ -11,15 +14,27 @@ namespace RazorApp.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly PeopleContext db;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, PeopleContext db)
         {
             _logger = logger;
+            this.db = db;
         }
 
         public void OnGet()
         {
-
+            LoadSampleData();
+        }
+        private void LoadSampleData()
+        {
+            if (db.Person.Count() == 0)
+            {
+                string file = System.IO.File.ReadAllText("personDummyData.json");
+                var person = JsonSerializer.Deserialize<List<Person>>(file);
+                db.AddRange(person);
+                db.SaveChanges();
+            }
         }
     }
 }
