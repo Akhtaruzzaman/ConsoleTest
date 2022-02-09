@@ -11,9 +11,33 @@
 </div>
 
 
-@{ 
+@{
     var data = service.Employees();
 }
+<table class="table table-bordered">
+    <tr class="text-center">
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Address</th>
+    </tr>
+    @foreach (var item in Model.people)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Age</td>
+            <td>
+                @foreach (var address in item.Adresses)
+                {
+                    <span>@address.Street.ToString() , @address.City.ToString() , @address.ZipCode.ToString()</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
 <table class="table table-bordered">
     <tr class="text-center">
         <th>Id</th>
