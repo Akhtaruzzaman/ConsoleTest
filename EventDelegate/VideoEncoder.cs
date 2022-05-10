@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace EventDelegate
 {
-    public class VideoEncoder
+    public interface IVideoEncoder
+    {
+        event VideoEncoder.VideoEncoderEventHandler VideoEncoded;
+        void Encode(Video video);
+    }
+
+    public class VideoEncoder : IVideoEncoder
     {
         //step 1- define a delegate
         public delegate void VideoEncoderEventHandler(object source, VideoEventArgs args);

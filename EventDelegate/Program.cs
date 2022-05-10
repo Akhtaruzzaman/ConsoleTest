@@ -14,7 +14,7 @@ namespace EventDelegate
             var mailservice = new SendEmail(); // subscriber
             var messageservice = new SendMessage(); // subscriber
 
-            var videoEncoder = new VideoEncoder(); //publisher
+            IVideoEncoder videoEncoder = new VideoEncoder(); //publisher
             videoEncoder.VideoEncoded += mailservice.OnVideoEncoded;
             videoEncoder.VideoEncoded += messageservice.OnVideoEncoded;
             videoEncoder.Encode(vidoe);
