@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveFuntions", "Consolelearn\ReactiveFuntions.csproj", "{62D8C655-8528-4FD7-8E90-A842122FD1DD}"
 EndProject
@@ -47,7 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleApp", "ConsoleApp", "{4A857D41-FAD9-4C7B-8680-FAF8EF7B57EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderDesignPattern", "BuilderDesignPattern\BuilderDesignPattern.csproj", "{AA180794-A658-4FA8-BC8C-5F173F9C48F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuilderDesignPattern", "BuilderDesignPattern\BuilderDesignPattern.csproj", "{AA180794-A658-4FA8-BC8C-5F173F9C48F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpWebProxy", "HttpWebProxy\HttpWebProxy.csproj", "{689EA500-F29E-447A-9500-59C81E592877}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{AA180794-A658-4FA8-BC8C-5F173F9C48F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA180794-A658-4FA8-BC8C-5F173F9C48F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA180794-A658-4FA8-BC8C-5F173F9C48F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{689EA500-F29E-447A-9500-59C81E592877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689EA500-F29E-447A-9500-59C81E592877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689EA500-F29E-447A-9500-59C81E592877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689EA500-F29E-447A-9500-59C81E592877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
